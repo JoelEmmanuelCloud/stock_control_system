@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from chartjs.views.lines import BaseLineChartView
 from .models import Material
+from chartjs.views.lines import BaseLineChartView
 
 def home(request):
     return render(request, 'stock/home.html')
@@ -8,6 +8,24 @@ def home(request):
 def material_list(request):
     materials = Material.objects.all()
     return render(request, 'stock/material_list.html', {'materials': materials})
+
+def dashboard(request):
+    materials = Material.objects.all()
+    labels = [material.name for material in materials]
+    data = [material.quantity for material in materials]
+
+    chart_data = {
+        "labels": labels,
+        "datasets": [{
+            "data": data,
+            "backgroundColor": "rgba(75, 192, 192, 0.2)",
+            "borderColor": "rgba(75, 192, 192, 1)",
+            "borderWidth": 1,
+            "label": 'Material Quantities',
+        }],
+    }
+
+    return render(request, 'stock/dashboard.html', {'chart_data': chart_data})
 
 class MaterialQuantityChartView(BaseLineChartView):
     def get_labels(self):
