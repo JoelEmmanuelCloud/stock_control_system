@@ -1,0 +1,52 @@
+[
+    {
+        "model": "stock.material",
+        "pk": 1,
+        "fields": {
+            "name": "Steel Plate",
+            "quantity": 500,
+            "category": "Metal",
+            "unit": "kg"
+        }
+    },
+    {
+        "model": "stock.material",
+        "pk": 2,
+        "fields": {
+            "name": "Plastic Components",
+            "quantity": 1000,
+            "category": "Plastic",
+            "unit": "pieces"
+        }
+    },
+    {
+        "model": "stock.material",
+        "pk": 3,
+        "fields": {
+            "name": "Electronic Components",
+            "quantity": 200,
+            "category": "Electronics",
+            "unit": "units"
+        }
+    },
+    {
+        "model": "stock.material",
+        "pk": 4,
+        "fields": {
+            "name": "Aluminum Sheet",
+            "quantity": 300,
+            "category": "Metal",
+            "unit": "kg"
+        }
+    },
+    {
+        "model": "stock.material",
+        "pk": 5,
+        "fields": {
+            "name": "Glass Panels",
+            "quantity": 150,
+            "category": "Glass",
+            "unit": "pieces"
+        }
+    }
+]
