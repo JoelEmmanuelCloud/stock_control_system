@@ -1,4 +1,3 @@
-# stock/models.py
 from django.db import models
 
 class Material(models.Model):
