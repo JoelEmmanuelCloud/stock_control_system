@@ -1,0 +1,30 @@
+<!-- stock/templates/stock/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Material Usage Dashboard</h2>
+    <canvas id="materialQuantityChart" width="400" height="200"></canvas>
+</div>
+
+<script>
+    {% block extra_js %}
+    // JavaScript for rendering the chart
+    var ctx = document.getElementById('materialQuantityChart').getContext('2d');
+    var materialQuantityChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ chart.get_labels|safe }},
+            datasets: {{ chart.get_datasets|safe }},
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    {% endblock %}
+</script>
+{% endblock %}
