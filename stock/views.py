@@ -2,12 +2,12 @@ from django.shortcuts import render
 from chartjs.views.lines import BaseLineChartView
 from .models import Material
 
+def home(request):
+    return render(request, 'stock/home.html')
+
 def material_list(request):
     materials = Material.objects.all()
     return render(request, 'stock/material_list.html', {'materials': materials})
-
-def home(request):
-    return render(request, 'stock/home.html')
 
 class MaterialQuantityChartView(BaseLineChartView):
     def get_labels(self):
