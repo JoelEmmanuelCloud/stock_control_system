@@ -5,3 +5,6 @@ def material_list(request):
     materials = Material.objects.all()
     return render(request, 'stock/material_list.html', {'materials': materials})
 
+def home(request):
+    return render(request, 'stock/home.html')
+
