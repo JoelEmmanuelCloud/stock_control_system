@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import material_list
+from .views import material_list, home
 
 urlpatterns = [
-    path('materials/', material_list, name='material_list'),
+    path('k/', material_list, name='material_list'),
+    path('', home, name='home'),
 ]
