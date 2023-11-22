@@ -2,29 +2,67 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-4">
-    <h2>Material Usage Dashboard</h2>
-    <canvas id="materialQuantityChart" width="400" height="200"></canvas>
-</div>
+  <div class="container mt-4">
+    <h2 class="mb-4">Dashboard</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            Material Quantities
+          </div>
+          <div class="card-body">
+            <!-- Add an HTML canvas element for the chart -->
+            <canvas id="materialChart" width="400" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-danger text-white">
+            Low-Stock Alerts
+          </div>
+          <div class="card-body">
+            <!-- Add content for low-stock alerts -->
+            {% for material in materials %}
+              {% if material.quantity < 10 %}
+                <p class="text-danger">{{ material.name }} is low in stock! (Quantity: {{ material.quantity }})</p>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<script>
-    {% block extra_js %}
-    // JavaScript for rendering the chart
-    var ctx = document.getElementById('materialQuantityChart').getContext('2d');
-    var materialQuantityChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: {{ chart.get_labels|safe }},
-            datasets: {{ chart.get_datasets|safe }},
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // Get the data from the JSON context
+    var labels = {{ chart_data.labels|safe }};
+    var data = {{ chart_data.datasets.0.data|safe }};
+
+    // Render the Chart.js chart
+    var ctx = document.getElementById('materialChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Material Quantities',
+          data: data,
+          backgroundColor: 'rgba(75, 192, 192, 0.5)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
+      }
     });
-    {% endblock %}
-</script>
+  </script>
 {% endblock %}
