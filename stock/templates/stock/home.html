@@ -1,4 +1,5 @@
-<!-- stock/templates/stock/home.html -->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,34 +11,70 @@
     <style>
         body {
             padding-top: 56px;
-            background-color: #f8f9fa;
+            background-image: url('{% static "stock/background.jpg" %}'); /* Add the path to your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            color: #ffffff; /* Text color set to white */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #007bff; /* Navbar background color set to blue */
+        }
+
+        .navbar-brand {
+            color: #ffffff !important; /* Navbar brand text color */
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important; /* Navbar link text color */
+        }
+
+        .container {
+            text-align: center; /* Center align the text */
+            margin-top: 50px; /* Add margin to the top for spacing */
+        }
+
+        h2 {
+            color: #007bff; /* Heading color */
+        }
+
+        p {
+            font-size: 18px; /* Font size for the paragraph */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Button background color */
+            border-color: #007bff; /* Button border color */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Button background color on hover */
+            border-color: #0056b3; /* Button border color on hover */
         }
     </style>
 </head>
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="{% url 'home' %}">Stock Control System</a>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <!-- Add your logo image path and alt text -->
+        <img src="{% static 'stock/logo.png' %}" alt="Logo" height="30" class="d-inline-block align-top">
+        Stock Control System
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                {% comment %} <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'material_list' %}">Material List</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a> {% endcomment %}
-            </li>
-        </ul>
     </div>
 </nav>
 
-<div class="container mt-4">
+<div class="container">
     <h2>Welcome to the Stock Control System</h2>
     <p>This system helps you manage materials in your manufacturing organization.</p>
     <a href="{% url 'material_list' %}" class="btn btn-primary">View Material List</a>
