@@ -1,6 +1,14 @@
 from django.shortcuts import render
 from .models import Material
 from chartjs.views.lines import BaseLineChartView
+from django.views.generic import TemplateView
+
+def ContactAdminView(request):
+    return render(request, 'stock/contact_admin.html')
+
+
+def AboutSystemView(request):
+    return render(request, 'stock/about_system.html')
 
 def home(request):
     return render(request, 'stock/home.html')
