@@ -1,4 +1,4 @@
-<!-- stock/templates/stock/dashboard.html -->
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -11,7 +11,7 @@
             Material Quantities
           </div>
           <div class="card-body">
-            <!-- Add an HTML canvas element for the chart -->
+            
             <canvas id="materialChart" width="400" height="200"></canvas>
           </div>
         </div>
@@ -22,9 +22,9 @@
             Low-Stock Alerts
           </div>
           <div class="card-body">
-            <!-- Add content for low-stock alerts -->
+            
             {% for material in materials %}
-              {% if material.quantity < 10 %}
+              {% if material.quantity < 300 %}
                 <p class="text-danger">{{ material.name }} is low in stock! (Quantity: {{ material.quantity }})</p>
               {% endif %}
             {% endfor %}
@@ -34,15 +34,15 @@
     </div>
   </div>
 
-  <!-- Include Chart.js library -->
+  
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script>
-    // Get the data from the JSON context
+    
     var labels = {{ chart_data.labels|safe }};
     var data = {{ chart_data.datasets.0.data|safe }};
 
-    // Render the Chart.js chart
+    
     var ctx = document.getElementById('materialChart').getContext('2d');
     var myChart = new Chart(ctx, {
       type: 'bar',
