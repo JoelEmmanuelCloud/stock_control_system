@@ -15,7 +15,7 @@
         }
 
         .navbar {
-            background: linear-gradient(to right, #007bff, #00bcd4);
+            background-color: #007bff; /* Use a solid color instead of a gradient for consistency */
             border-bottom: 1px solid #ddd;
         }
 
@@ -39,10 +39,8 @@
 </head>
 <body>
 
-
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <a class="navbar-brand" href="{% url 'home' %}">
-        
         <img src="{% static 'stock/logo.png' %}" alt="Logo" class="navbar-logo">
         Stock Control System
     </a>
@@ -65,7 +63,6 @@
     {% block content %}
     {% endblock %}
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
