@@ -11,10 +11,10 @@
     <style>
         body {
             padding-top: 56px;
-            background-image: url('{% static "stock/background.jpg" %}'); /* Add the path to your background image */
-            background-size: cover; /* Cover the entire viewport */
-            background-position: center; /* Center the background image */
-            color: #ffffff; /* Text color set to white */
+            background-image: url('{% static "stock/background.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -23,38 +23,36 @@
         }
 
         nav {
-            background-color: #007bff; /* Navbar background color set to blue */
+            background-color: #007bff;
         }
 
         .navbar-brand {
-            color: #ffffff !important; /* Navbar brand text color */
+            color: #ffffff !important;
         }
 
         .navbar-nav .nav-link {
-            color: #ffffff !important; /* Navbar link text color */
+            color: #ffffff !important;
         }
 
         .container {
-            text-align: center; /* Center align the text */
-            margin-top: 50px; /* Add margin to the top for spacing */
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
         }
 
-        h2 {
-            color: #007bff; /* Heading color */
-        }
-
-        p {
-            font-size: 18px; /* Font size for the paragraph */
+        h2, p {
+            color: #333;
         }
 
         .btn-primary {
-            background-color: #007bff; /* Button background color */
-            border-color: #007bff; /* Button border color */
+            background-color: #007bff;
+            border-color: #007bff;
         }
 
         .btn-primary:hover {
-            background-color: #0056b3; /* Button background color on hover */
-            border-color: #0056b3; /* Button border color on hover */
+            background-color: #0056b3;
+            border-color: #0056b3;
         }
     </style>
 </head>
@@ -63,7 +61,6 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <a class="navbar-brand" href="{% url 'home' %}">
-        <!-- Add your logo image path and alt text -->
         <img src="{% static 'stock/logo.png' %}" alt="Logo" height="30" class="d-inline-block align-top">
         Stock Control System
     </a>
@@ -71,12 +68,20 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact_admin' %}">Contact Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about_system' %}">About the System</a>
+            </li>
+        </ul>
     </div>
 </nav>
 
 <div class="container">
     <h2>Welcome to the Stock Control System</h2>
-    <p>This system helps you manage materials in your manufacturing organization.</p>
+    <p>Manage your manufacturing materials efficiently with our Stock Control System. Streamline your processes and optimize your inventory.</p>
     <a href="{% url 'material_list' %}" class="btn btn-primary">View Material List</a>
 </div>
 
