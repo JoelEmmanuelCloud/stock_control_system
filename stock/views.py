@@ -33,7 +33,7 @@ def dashboard(request):
         }],
     }
 
-    return render(request, 'stock/dashboard.html', {'chart_data': chart_data})
+    return render(request, 'stock/dashboard.html', {'chart_data': chart_data, 'materials': materials})
 
 class MaterialQuantityChartView(BaseLineChartView):
     def get_labels(self):
