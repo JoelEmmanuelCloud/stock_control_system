@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import userCreationForm
 
 def register(response):
-    return render(response, "register/register.html", {})
+    form = userCreationForm()
+    return render(response, "register/register.html", {"form": form})
+
