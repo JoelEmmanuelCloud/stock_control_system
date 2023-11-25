@@ -36,7 +36,7 @@ For a live demo, visit [https://stockcontrolsystem.com](https://stockcontrolsyst
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/stock-control-system.git
+   git clone https://github.com/JoelEmmanuelCloud/stock_control_system.git
 
 2. Install dependencies:
    ```bash
