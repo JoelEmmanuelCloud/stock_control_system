@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Material
+from django.contrib.auth.decorators import login_required
 from chartjs.views.lines import BaseLineChartView
 
 def ContactAdminView(request):
@@ -12,10 +13,13 @@ def AboutSystemView(request):
 def home(request):
     return render(request, 'stock/home.html')
 
+@login_required(login_url='login')
 def material_list(request):
     materials = Material.objects.all()
     return render(request, 'stock/material_list.html', {'materials': materials})
 
+
+@login_required(login_url='login')
 def dashboard(request):
     materials = Material.objects.all()
     labels = [material.name for material in materials]
