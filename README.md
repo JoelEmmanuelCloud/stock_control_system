@@ -1,6 +1,7 @@
 # Stock Control System
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![stock system](https://github.com/JoelEmmanuelCloud/stock_control_system/assets/123770803/1c0ee0bc-347b-4def-a1cf-fbe71e4432cc)
+
 
 ## Overview
 Managing manufacturing materials is a crucial aspect of any business. The Stock Control System aims to simplify this process by providing a user-friendly interface to track materials, view insights through a dashboard, and ensure efficient inventory management.
