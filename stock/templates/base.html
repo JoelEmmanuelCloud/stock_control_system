@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Control System</title>
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         body {
             padding-top: 56px;
@@ -15,7 +15,7 @@
         }
 
         .navbar {
-            background-color: #007bff; /* Use a solid color instead of a gradient for consistency */
+            background-color: #007bff;
             border-bottom: 1px solid #ddd;
         }
 
@@ -50,10 +50,14 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                {% endif %}
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'material_list' %}">Material List</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'material_list' %}">Material List</a>
+                {% endif %}
             </li>
         </ul>
     </div>
